@@ -75,7 +75,9 @@ EOF
 
 # Start services
 sudo service awslogs start
-
+sudo chkconfig docker on
+sudo service docker start
+sudo start ecs
 
 
 # Loop until ECS agent has registered to ECS cluster

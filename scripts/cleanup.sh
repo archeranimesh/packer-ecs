@@ -10,3 +10,9 @@ sudo rm -f /var/log/docker /var/log/ecs/*
 sudo rm -Rf /var/run/docker.sock
 
 
+# Remove Docker network database
+sudo rm -rf /var/lib/docker/network
+
+
+# Remove docker0 interface if it has been created.
+sudo ip link del docker0 || true
