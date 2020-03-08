@@ -25,6 +25,14 @@
 	      }
 	    }
 	],
-	"provisioners" : [],
+	"provisioners" : [
+		{
+	      "type": "shell",
+	      "script": "scripts/configure-timezone.sh",
+	      "environment_vars": [
+	        "TIME_ZONE={{user `time_zone`}}"
+	      ]
+	    },
+	],
 	"post-processors" : []
 }
