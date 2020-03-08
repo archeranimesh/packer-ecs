@@ -68,3 +68,7 @@ log_stream_name = {instance_id}
 datetime_format = %Y-%m-%dT%H:%M:%SZ
 time_zone = UTC
 EOF
+
+
+# Start services
+sudo service awslogs start
