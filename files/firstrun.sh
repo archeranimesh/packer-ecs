@@ -84,3 +84,13 @@ EOF
 
 # Start services
 sudo service awslogs start
+
+
+
+# Loop until ECS agent has registered to ECS cluster
+echo "Checking ECS agent is joined to ${ECS_CLUSTER}"
+until [[ "$(curl --fail --silent http://localhost:51678/v1/metadata | jq '.Cluster // empty' -r -e)" == ${ECS_CLUSTER} ]]
+  do printf '.'
+  sleep 5
+done
+echo "ECS agent successfully joined to ${ECS_CLUSTER}"
